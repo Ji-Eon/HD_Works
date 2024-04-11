@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0dd5f0-5f9a-4be4-a603-18ec4a793a6b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/domain/Patient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/domain/PatientVisit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/repository/PatientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/src/test/java/hd_world/hd_world_hello/PatientRepositoryTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/domain/Hospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/domain/Hospital.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/domain/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/domain/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/domain/PatientVisit.java" beforeDir="false" afterPath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/domain/PatientVisit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +63,9 @@
   "keyToString": {
     "Gradle.Build hd_world_hello.executor": "Run",
     "Gradle.HdWorldHelloApplicationTests.executor": "Run",
+    "Gradle.PatientRepositoryTest.executor": "Run",
+    "Gradle.PatientRepositoryTest.whenSaved_thenFindsByName.executor": "Run",
+    "Gradle.PatientRepositoryTests.whenSavePatient_thenRetrievePatient.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -89,6 +95,102 @@
     ]
   }
 }]]></component>
+  <component name="RunManager" selected="Spring Boot.HdWorldHelloApplication">
+    <configuration name="PatientRepositoryTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/hd_world_hello" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;hd_world.hd_world_hello.PatientRepositoryTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PatientRepositoryTest.whenSaved_thenFindsByName" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/hd_world_hello" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;hd_world.hd_world_hello.PatientRepositoryTest.whenSaved_thenFindsByName&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PatientRepositoryTests.whenSavePatient_thenRetrievePatient" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/hd_world_hello" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;hd_world.hd_world_hello.PatientRepositoryTests.whenSavePatient_thenRetrievePatient&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="HdWorldHelloApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="hd_world_hello.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="hd_world.hd_world_hello.HdWorldHelloApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hd_world.hd_world_hello.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.HdWorldHelloApplication" />
+        <item itemvalue="Gradle.PatientRepositoryTests.whenSavePatient_thenRetrievePatient" />
+        <item itemvalue="Gradle.PatientRepositoryTest.whenSaved_thenFindsByName" />
+        <item itemvalue="Gradle.PatientRepositoryTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -104,7 +206,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712814104535</updated>
-      <workItem from="1712814105621" duration="11590000" />
+      <workItem from="1712814105621" duration="17214000" />
     </task>
     <servers />
   </component>

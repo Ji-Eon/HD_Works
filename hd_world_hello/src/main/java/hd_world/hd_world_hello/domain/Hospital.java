@@ -7,10 +7,10 @@ import jakarta.persistence.*;
 public class Hospital {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long hospitalId;
+    private Long id;
 
     @Column(nullable = false, length = 45)
-    private String name;
+    private String hospitalName;
 
     @Column(nullable = false, length = 20)
     private String medicalInstitutionNumber;

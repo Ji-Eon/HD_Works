@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class PatientVisit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long patientVisitId;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patientId")
