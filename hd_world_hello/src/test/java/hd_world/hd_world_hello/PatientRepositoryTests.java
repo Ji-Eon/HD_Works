@@ -2,7 +2,9 @@ package hd_world.hd_world_hello;
 
 import hd_world.hd_world_hello.domain.Hospital;
 import hd_world.hd_world_hello.domain.Patient;
+import hd_world.hd_world_hello.repository.HospitalRepository;
 import hd_world.hd_world_hello.repository.PatientRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -16,8 +18,27 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DataJpaTest
 public class PatientRepositoryTests {
 
+
+    @Autowired
+    private HospitalRepository hospitalRepository;
+
     @Autowired
     private PatientRepository patientRepository;
+
+    private Hospital hospital;
+
+    @BeforeEach
+    public void setUp() {
+        // given
+        hospital = new Hospital();
+        hospital.setHospitalName("정션병원");
+        hospital.setMedicalInstitutionNumber("JB1232");
+        hospital.setDirectorName("김지언");
+        hospital = hospitalRepository.save(hospital);
+    }
+
+
+
 
     @Test
     public void whenSavePatient_thenRetrievePatient() {

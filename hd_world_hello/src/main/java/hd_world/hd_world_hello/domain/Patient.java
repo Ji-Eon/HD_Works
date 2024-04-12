@@ -1,9 +1,12 @@
 package hd_world.hd_world_hello.domain;
 
+import hd_world.hd_world_hello.repository.HospitalRepository;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
 
@@ -14,6 +17,7 @@ import java.util.Date;
 @Entity
 @Table(name = "Patient")
 public class Patient {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
