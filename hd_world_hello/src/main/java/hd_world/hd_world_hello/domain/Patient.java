@@ -1,5 +1,6 @@
 package hd_world.hd_world_hello.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import hd_world.hd_world_hello.repository.HospitalRepository;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -22,8 +23,9 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "hospitalId")
+    @JoinColumn(name = "hospital_id")
     private Hospital hospital;
 
     @Setter
@@ -43,6 +45,7 @@ public class Patient {
 
     @Column(nullable = false, length = 13)
     private String gender;
+
 
 
 
