@@ -108,9 +108,10 @@ H2 Console을 이용하여 Query를 통해 데이터를 입력 후  [localhost:8
 
 5. Delete 
 - 환자 정보를 삭제합니다. ( 의료정보의 경우 10년 보관해야 합니다.)
+- 환자 정보를 삭제하기 전 한번더 확인 Modal이 나타 납니다.
 
 <p align="center">
-  <img src="https://github.com/Ji-Eon/HD_Works/blob/HD_Dev_Works/git_images/create_patient_modal.png?raw=true">
+  <img src="https://github.com/Ji-Eon/HD_Works/blob/HD_Dev_Works/git_images/delete_modal.png?raw=true">
 </p>
 
 
