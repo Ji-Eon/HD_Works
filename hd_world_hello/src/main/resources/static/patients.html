@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patients List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+  <h2>Patients List</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Patient Name</th>
+      <th>Patient ID</th>
+      <th>Birthday</th>
+      <th>Phone</th>
+      <th>Gender</th>
+    </tr>
+    </thead>
+    <tbody id="patient-list">
+    </tbody>
+  </table>
+  <nav>
+    <ul id="pagination" class="pagination">
+    </ul>
+  </nav>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+  let currentPage = 0; // 현재 페이지
+  const pageSize = 10; // 페이지 당 환자 수
+
+  function fetchPatients(page = 0) {
+    currentPage = page;
+    fetch(`http://localhost:8080/patients/pagenation?page=${currentPage}&size=${pageSize}`)
+            .then(response => response.json())
+            .then(data => {
+              const patientList = document.getElementById('patient-list');
+              patientList.innerHTML = ''; // Clear existing patient data
+              data.content.forEach(patient => {
+                patientList.innerHTML += `
+            <tr>
+              <td>${patient.id}</td>
+              <td>${patient.patientName}</td>
+              <td>${patient.patientId}</td>
+              <td>${patient.birthday}</td>
+              <td>${patient.phone}</td>
+              <td>${patient.gender}</td>
+            </tr>
+          `;
+              });
+
+              buildPagination(data.totalPages);
+            });
+  }
+
+  function buildPagination(totalPages) {
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';
+    for (let i = 0; i < totalPages; i++) {
+      const li = document.createElement('li');
+      li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+      li.innerHTML = `<a class="page-link" href="#" onclick="fetchPatients(${i})">${i + 1}</a>`;
+      pagination.appendChild(li);
+    }
+  }
+
+  fetchPatients();
+</script>
+</body>
+</html>

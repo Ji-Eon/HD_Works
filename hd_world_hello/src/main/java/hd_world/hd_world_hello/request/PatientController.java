@@ -4,11 +4,12 @@ package hd_world.hd_world_hello.request;
 import hd_world.hd_world_hello.domain.Patient;
 import hd_world.hd_world_hello.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +27,15 @@ public class PatientController {
     @GetMapping("/list")
     public List<Patient> findAllUser() {
         return patientRepository.findAll();
+    }
+
+    @GetMapping("/pagenation")
+    public Page<Patient> getPatientsPage(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ) {
+        Pageable pageable = PageRequest.of(page, size);
+        return patientRepository.findAll(pageable);
     }
 
 //    @PostMapping("/user") // Patient 테이블에 데이터를 입력하는 부분 insert into user (msrl, name, uid) values (null, ?, ?) 와 같음
