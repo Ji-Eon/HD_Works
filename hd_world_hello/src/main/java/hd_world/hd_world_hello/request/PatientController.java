@@ -24,10 +24,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
+import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -157,10 +156,11 @@ public class PatientController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<Patient>> searchPatients(
+    public ResponseEntity<List<PatientDTO>> searchPatients(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String id,
-            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate birthday) {
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate birthday,
+            @RequestParam(required = false) String hospitalName) {
 
         List<Patient> patients = new ArrayList<>();
 
@@ -171,11 +171,36 @@ public class PatientController {
             patients.addAll(patientRepository.findByPatientIdContaining(id));
         }
         if (birthday != null) {
+            // 생일로 검색하는 부분 추가 가능
         }
 
-        // 중복 제거 로직이 필요할 수 있음, 또는 각각의 조건에 대한 별도의 엔드포인트 구성이 더 좋을 수 있음
 
-        return ResponseEntity.ok(patients);
+
+        // 중복 제거 로직 추가
+        Set<Patient> uniquePatients = new HashSet<>(patients);
+        List<Patient> uniquePatientList = new ArrayList<>(uniquePatients);
+
+        // DTO로 변환
+        List<PatientDTO> patientDTOs = uniquePatientList.stream()
+                .map(patient -> {
+                    PatientDTO dto = new PatientDTO();
+                    dto.setId(patient.getId());
+                    dto.setPatientName(patient.getPatientName());
+                    dto.setPatientId(patient.getPatientId());
+                    dto.setBirthday(patient.getBirthday());
+                    dto.setPhone(patient.getPhone());
+                    dto.setGender(patient.getGender());
+
+                    // 병원 정보가 있는 경우 병원 이름을 설정
+                    if (patient.getHospital() != null) {
+                        dto.setHospitalName(patient.getHospital().getHospitalName());
+                    }
+
+                    return dto;
+                })
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(patientDTOs);
     }
 
 }
