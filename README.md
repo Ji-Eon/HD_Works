@@ -5,17 +5,21 @@
 * [Spring Boot](https://spring.io/projects/spring-boot) - 백엔드 프레임워크
 * [Maven](https://maven.apache.org/) - 의존성 관리
 * [H2](https://www.h2database.com/html/main.html) - 인메모리 데이터베이스
-* BootStrap
-* Java : 17
+* [Bootstrap](https://getbootstrap.com/) UI-Library
+* [Java](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)  17
 
 
 ### 사전과제 체크리스트
 
-- SprintBoot : 3.0
-- Database : H2-Console
-- BootStrap
-- Java : 17
-- 
+- [x] https://start.spring.io 에서 프로젝트를 생성
+- [x] H2 설정하기
+- [x] Entity 클래스 및 Repository 생성
+- [x] 환자 등록
+- [x] 환자 삭제
+- [x] 환자 조회
+- [x] 환자 삭제
+- [x] 환자 목록 조회 
+
 ### H2 Database Query
 - Hospital의 경우 이미 병원코드가 있다는 전제하에 미리 생성
 - 환자정보는 와 Hospital정보는 외래키로 연결하여 데이터를 입력할 수 있도록 구성

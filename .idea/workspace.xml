@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0dd5f0-5f9a-4be4-a603-18ec4a793a6b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/common/SwaggerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/request/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/request/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hd_world_hello/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/hd_world_hello/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +248,7 @@
       <workItem from="1712814105621" duration="18590000" />
       <workItem from="1712882765524" duration="4960000" />
       <workItem from="1712911288697" duration="4602000" />
-      <workItem from="1713147508072" duration="9684000" />
+      <workItem from="1713147508072" duration="11414000" />
     </task>
     <servers />
   </component>
@@ -270,11 +273,6 @@
           <url>file://$PROJECT_DIR$/hd_world_hello/src/test/java/hd_world/hd_world_hello/PatientRepositoryTests.java</url>
           <line>17</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/HdWorldHelloApplication.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,5 +1,7 @@
 package hd_world.hd_world_hello.request;
 
+
+
 import hd_world.hd_world_hello.domain.Hospital;
 import hd_world.hd_world_hello.repository.HospitalRepository;
 import org.slf4j.Logger;
@@ -22,6 +24,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+
 
 @RestController
 @RequestMapping("/patients") // 이 경로로 시작하는 모든 HTTP 요청을 처리합니다.
