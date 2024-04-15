@@ -129,6 +129,15 @@ public class PatientController {
         }
     }
 
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<Patient> getPatientById(@PathVariable Long id) {
+        Optional<Patient> patient = patientRepository.findById(id);
+        if (patient.isPresent()) {
+            return ResponseEntity.ok(patient.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 
 }

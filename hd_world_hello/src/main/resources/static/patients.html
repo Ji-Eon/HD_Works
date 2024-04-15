@@ -82,14 +82,29 @@
           <form id="detail-patient-form">
             <input type="hidden" id="patient-id-hidden" value=""> <!-- Hidden input to store patient ID -->
             <div class="form-group">
-              <label for="patient-name">Patient Name</label>
-              <input type="text" class="form-control" id="patient-name" required>
+              <label for="detail-patient-name">Patient Name</label>
+              <input type="text" class="form-control" id="detail-patient-name" required>
             </div>
             <div class="form-group">
-              <label for="patient-id">Patient ID</label>
-              <input type="text" class="form-control" id="patient-id" required>
+              <label for="detail-patient-id">Patient ID</label>
+              <input type="text" class="form-control" id="detail-patient-id" required>
             </div>
-            <!-- Add other fields similarly -->
+            <div class="form-group">
+              <label for="detail-patient-birthday">Birthday</label>
+              <input type="date" class="form-control" id="detail-patient-birthday" required>
+            </div>
+            <div class="form-group">
+              <label for="detail-patient-phone">Phone</label>
+              <input type="tel" class="form-control" id="detail-patient-phone" required>
+            </div>
+            <div class="form-group">
+              <label for="detail-patient-gender">Gender</label>
+              <select class="form-control" id="detail-patient-gender" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Other</option>
+              </select>
+            </div>
           </form>
         </div>
         <div class="modal-footer">
@@ -241,14 +256,23 @@
 
 <script>
   function detailPatient(patientId) {
-    fetch(`http://localhost:8080/patients/${patientId}`)
+    // Fetch the patient data using the patientId
+    fetch(`http://localhost:8080/patients/detail/${patientId}`)
             .then(response => response.json())
             .then(patient => {
-              document.getElementById('patient-id-hidden').value = patient.id; // Set patient ID to hidden input
-              document.getElementById('patient-name').value = patient.patientName;
-              document.getElementById('patient-id').value = patient.patientId;
-              // Populate other fields
+              // Fill in the form fields with the fetched patient data
+              document.getElementById('patient-id-hidden').value = patient.id;
+              document.getElementById('detail-patient-name').value = patient.patientName;
+              document.getElementById('detail-patient-id').value = patient.patientId;
+              document.getElementById('detail-patient-birthday').value = patient.birthday;
+              document.getElementById('detail-patient-phone').value = patient.phone;
+              document.getElementById('detail-patient-gender').value = patient.gender;
+
+              // Show the modal with the form filled
               $('#detailPatientModal').modal('show');
+            })
+            .catch(error => {
+              console.error('Error fetching patient details:', error);
             });
   }
 
