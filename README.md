@@ -67,6 +67,32 @@ API 문서에 접근하려면 브라우저를 통해 [localhost:8000/swagger/](h
 - `POST /patients/create`: 새로운 환자 정보를 생성
 
 
+### Bootstrap Front-End 
+
+H2 Console을 이용하여 Query를 통해 데이터를 입력 후  [localhost:8080/patients.html](localhost:8080/patients.html)에 접속하세요.
+
+1. PageLayout
+- Patient Layout은 환자 정보에 대해 Pagenation을 기본 API로 호출해오고 있습니다.
+- Table에서 Detail은 환자 상세정보를 확인할 수 있습니다.
+- Delete버튼은 환자정보를 삭제할 수 있습니다.
+- 
+<p align="center">
+  <img src="https://github.com/Ji-Eon/KidsNote_backend-pre-task/blob/main/KIDS_TOOLS/git_images/swagger_ui.png?raw=true">
+</p>
+
+2. Search
+- 환자정보에 대한 검색은 환자이름,환자번호,생년월일로 검색이 가능합니다.
+
+3. ADD_Pateient
+- 환자정보 추가는 환자이름 , 아이디 ( 추후 자동부여로 변경 ) ,생년월일 ,전화번호 , 성별
+
+4. Patient Detail
+- 환자 상세 정보를 확인할 수 있습니다.
+
+5. Delete 
+- 환자 정보를 삭제합니다. ( 의료정보의 경우 10년 보관해야 합니다.)
+
+
 
 ## Developer
 
