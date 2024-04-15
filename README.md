@@ -105,6 +105,10 @@ H2 Console을 이용하여 Query를 통해 데이터를 입력 후  [localhost:8
 4. Patient Detail
 - 환자 상세 정보를 확인할 수 있습니다.
 - 버튼을 클릭하면 환자 정보에 대한 Modal을 불러 옵니다.
+- 
+<p align="center">
+  <img src="https://github.com/Ji-Eon/HD_Works/blob/HD_Dev_Works/git_images/detail_modal_result.png?raw=true">
+</p>
 
 5. Delete 
 - 환자 정보를 삭제합니다. ( 의료정보의 경우 10년 보관해야 합니다.)
