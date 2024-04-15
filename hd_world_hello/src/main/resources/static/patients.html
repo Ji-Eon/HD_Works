@@ -276,17 +276,20 @@
             });
   }
 
+  // Update patient details
   document.getElementById('detail-patient-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    const patientId = document.getElementById('patient-id-hidden').value; // Get patient ID from hidden input
+    const patientId = document.getElementById('patient-id-hidden').value;
 
     const updatedPatientData = {
-      patientName: document.getElementById('patient-name').value,
-      patientId: document.getElementById('patient-id').value,
-      // Extract other fields similarly
+      patientName: document.getElementById('detail-patient-name').value,
+      patientId: document.getElementById('detail-patient-id').value,
+      birthday: document.getElementById('detail-patient-birthday').value,
+      phone: document.getElementById('detail-patient-phone').value,
+      gender: document.getElementById('detail-patient-gender').value
     };
 
-    fetch(`http://localhost:8080/patients/${patientId}`, {
+    fetch(`http://localhost:8080/patients/modify/${patientId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -296,7 +299,7 @@
             .then(response => {
               if (response.ok) {
                 $('#detailPatientModal').modal('hide');
-                fetchPatients(currentPage); // Optionally refresh the patients list or handle the updated data
+                fetchPatients(currentPage);
               } else {
                 console.error('Error updating patient');
               }

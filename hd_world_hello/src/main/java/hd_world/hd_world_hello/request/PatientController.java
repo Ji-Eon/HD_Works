@@ -20,6 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/patients") // 이 경로로 시작하는 모든 HTTP 요청을 처리합니다.
+@RequestMapping("/patients")
 public class PatientController {
 
     @Autowired
@@ -99,17 +100,13 @@ public class PatientController {
 
     @PostMapping("/create")
     public ResponseEntity<String> addPatient(@RequestBody Patient patient) {
-        // Log the incoming patient data
         System.out.println("Adding new patient:");
         System.out.println("Name: " + patient.getPatientName());
 
-        // Assuming "정션병원" is already present in the Hospital table
         Optional<Hospital> hospital = hospitalRepository.findByHospitalName("정션병원");
         if (hospital.isPresent()) {
-            // Set the hospital to the patient
             patient.setHospital(hospital.get());
         } else {
-            // Handle the case where the hospital is not found
             System.out.println("Hospital '정션병원' not found");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Hospital not found");
         }
@@ -138,6 +135,25 @@ public class PatientController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PutMapping("/modify/{id}")
+    public ResponseEntity<Patient> updatePatient(@PathVariable(value = "id") Long id, @RequestBody Patient patientDetails) {
+        Patient patient = patientRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Patient not found for this id :: " + id
+                ));
+
+        patient.setPatientName(patientDetails.getPatientName());
+        patient.setPatientId(patientDetails.getPatientId());
+        patient.setBirthday(patientDetails.getBirthday());
+        patient.setPhone(patientDetails.getPhone());
+        patient.setGender(patientDetails.getGender());
+        // 필요하다면 여기에 더 많은 필드를 추가할 수 있습니다.
+
+        final Patient updatedPatient = patientRepository.save(patient);
+        return ResponseEntity.ok(updatedPatient);
+    }
+
 
 
 }
