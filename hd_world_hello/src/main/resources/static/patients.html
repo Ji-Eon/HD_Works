@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,14 +17,14 @@
       </button>
 
       <!-- Search Form -->
-      <form class="form-inline">
+      <form class="form-inline my-2 my-lg-0" onsubmit="searchPatients(); return false;">
         <select class="custom-select mr-sm-2" id="search-category">
           <option value="name">Patient Name</option>
           <option value="id">Patient ID</option>
           <option value="birthday">Birthday</option>
         </select>
-        <input class="form-control mr-sm-2" type="search" placeholder="Search patients" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="Search patients" aria-label="Search">
+        <button class="btn btn-outline-secondary" type="button" onclick="searchPatients()">Search</button>
       </form>
     </div>
     <!-- Table and the rest of your page content goes here -->
@@ -311,6 +311,65 @@
             });
   });
 
+</script>
+
+<script>
+  function searchPatients() {
+    const searchCategory = document.getElementById('search-category').value;
+    const searchInput = document.getElementById('search-input').value; // 'search-input'이라는 ID를 가진 입력 필드가 존재하는지 확인하세요.
+
+    let searchUrl = `http://localhost:8080/patients/search?`;
+
+    if (searchCategory === "name") {
+      searchUrl += `name=${encodeURIComponent(searchInput)}`;
+    } else if (searchCategory === "id") {
+      searchUrl += `id=${encodeURIComponent(searchInput)}`;
+    } else if (searchCategory === "birthday") {
+      searchUrl += `birthday=${encodeURIComponent(searchInput)}`;
+    }
+
+    // Clear the existing table
+    const patientList = document.getElementById('patient-list');
+    patientList.innerHTML = '';
+
+    fetch(searchUrl)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.statusText);
+              }
+              return response.json();
+            })
+            .then(patients => {
+              // Clear the current contents of the table
+              const patientList = document.getElementById('patient-list');
+              patientList.innerHTML = '';
+
+              // Check if patients array is not empty
+              if (patients.length > 0) {
+                // Iterate over each patient and append a row to the table for each one
+                patients.forEach(patient => {
+                  patientList.innerHTML += `
+                  <tr>
+                    <td>${patient.id}</td>
+                    <td>${patient.patientName}</td>
+                    <td>${patient.patientId}</td>
+                    <td>${patient.birthday}</td>
+                    <td>${patient.phone}</td>
+                    <td>${patient.gender}</td>
+                    <td>${patient.hospitalName}</td>
+                    <td><button class="btn btn-primary" onclick="detailPatient(${patient.id})">Detail</button></td>
+                    <td><button class="btn btn-danger" onclick="confirmDelete(${patient.id})">Delete</button></td>
+                  </tr>`;
+                });
+              } else {
+                // If the patients array is empty, display a 'No records found' message
+                patientList.innerHTML = `<tr><td colspan="9" class="text-center">No records found</td></tr>`;
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+  }
 </script>
 </body>
 </html>

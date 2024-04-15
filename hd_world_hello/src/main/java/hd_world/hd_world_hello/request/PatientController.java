@@ -16,12 +16,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -154,6 +156,26 @@ public class PatientController {
         return ResponseEntity.ok(updatedPatient);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<Patient>> searchPatients(
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String id,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate birthday) {
 
+        List<Patient> patients = new ArrayList<>();
+
+        if (name != null && !name.isEmpty()) {
+            patients.addAll(patientRepository.findByPatientNameContaining(name));
+        }
+        if (id != null && !id.isEmpty()) {
+            patients.addAll(patientRepository.findByPatientIdContaining(id));
+        }
+        if (birthday != null) {
+        }
+
+        // 중복 제거 로직이 필요할 수 있음, 또는 각각의 조건에 대한 별도의 엔드포인트 구성이 더 좋을 수 있음
+
+        return ResponseEntity.ok(patients);
+    }
 
 }
