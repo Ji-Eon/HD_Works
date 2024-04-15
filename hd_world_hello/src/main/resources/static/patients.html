@@ -9,6 +9,56 @@
 <body>
 <div class="container mt-5">
   <h2>Patients List</h2>
+  <!-- Add Patient Button -->
+  <div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPatientModal">
+      Add Patient
+    </button>
+  </div>
+
+  <!-- Add Patient Modal -->
+  <div class="modal fade" id="addPatientModal" tabindex="-1" role="dialog" aria-labelledby="addPatientModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addPatientModalLabel">Add New Patient</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="add-patient-form">
+            <div class="form-group">
+              <label for="patient-name">Patient Name</label>
+              <input type="text" class="form-control" id="patient-name" required>
+            </div>
+            <div class="form-group">
+              <label for="patient-id">Patient ID</label>
+              <input type="text" class="form-control" id="patient-id" required>
+            </div>
+            <div class="form-group">
+              <label for="patient-birthday">Birthday</label>
+              <input type="date" class="form-control" id="patient-birthday" required>
+            </div>
+            <div class="form-group">
+              <label for="patient-phone">Phone</label>
+              <input type="tel" class="form-control" id="patient-phone" required>
+            </div>
+            <div class="form-group">
+              <label for="patient-gender">Gender</label>
+              <select class="form-control" id="patient-gender" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Other</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <table class="table">
     <thead>
     <tr>
@@ -21,13 +71,16 @@
     </tr>
     </thead>
     <tbody id="patient-list">
+    <!-- Patient data will go here -->
     </tbody>
   </table>
   <nav>
     <ul id="pagination" class="pagination">
+      <!-- Pagination buttons will go here -->
     </ul>
   </nav>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
@@ -37,7 +90,7 @@
 
   function fetchPatients(page = 0) {
     currentPage = page;
-    fetch(`http://localhost:8080/patients/pagenation?page=${currentPage}&size=${pageSize}`)
+    fetch(`http://localhost:8080/patients/list?page=${currentPage}&size=${pageSize}`)
             .then(response => response.json())
             .then(data => {
               const patientList = document.getElementById('patient-list');
@@ -61,7 +114,7 @@
 
   function buildPagination(totalPages) {
     const pagination = document.getElementById('pagination');
-    pagination.innerHTML = '';
+    pagination.innerHTML = ''; // Clear existing pagination buttons
     for (let i = 0; i < totalPages; i++) {
       const li = document.createElement('li');
       li.className = `page-item ${i === currentPage ? 'active' : ''}`;
@@ -70,7 +123,41 @@
     }
   }
 
+  // Load initial patient data
   fetchPatients();
+</script>
+
+<script>
+  document.getElementById('add-patient-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const patientData = {
+      patientName: document.getElementById('patient-name').value,
+      patientId: document.getElementById('patient-id').value,
+      birthday: document.getElementById('patient-birthday').value,
+      phone: document.getElementById('patient-phone').value,
+      gender: document.getElementById('patient-gender').value
+    };
+
+    addPatient(patientData);
+  });
+
+  function addPatient(patientData) {
+    fetch('http://localhost:8080/patients', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(patientData)
+    })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+              $('#addPatientModal').modal('hide');
+              fetchPatients(); // 데이터를 다시 불러와 테이블을 갱신합니다.
+            })
+            .catch(error => console.error('Error:', error));
+  }
 </script>
 </body>
 </html>
