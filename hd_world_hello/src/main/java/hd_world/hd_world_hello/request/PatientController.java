@@ -119,6 +119,16 @@ public class PatientController {
         return ResponseEntity.status(HttpStatus.CREATED).body("Patient created with ID: " + newPatient.getId());
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deletePatient(@PathVariable Long id) {
+        try {
+            patientRepository.deleteById(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("환자를 찾을 수 없습니다.");
+        }
+    }
+
 
 
 }

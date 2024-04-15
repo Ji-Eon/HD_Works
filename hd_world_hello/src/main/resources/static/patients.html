@@ -8,12 +8,21 @@
 </head>
 <body>
 <div class="container mt-5">
-  <h2>Patients List</h2>
-  <!-- Add Patient Button -->
-  <div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPatientModal">
-      Add Patient
-    </button>
+  <div class="container mt-5">
+    <h2 class="mb-4">Patients List</h2>
+    <div class="d-flex justify-content-between mb-3">
+      <!-- Add Patient Button -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPatientModal">
+        Add Patient
+      </button>
+
+      <!-- Search Form -->
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search patients" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+    <!-- Table and the rest of your page content goes here -->
   </div>
 
   <!-- Add Patient Modal -->
