@@ -75,23 +75,43 @@ H2 Console을 이용하여 Query를 통해 데이터를 입력 후  [localhost:8
 - Patient Layout은 환자 정보에 대해 Pagenation을 기본 API로 호출해오고 있습니다.
 - Table에서 Detail은 환자 상세정보를 확인할 수 있습니다.
 - Delete버튼은 환자정보를 삭제할 수 있습니다.
-- 
+
 <p align="center">
-  <img src="https://github.com/Ji-Eon/KidsNote_backend-pre-task/blob/main/KIDS_TOOLS/git_images/swagger_ui.png?raw=true">
+  <img src="https://github.com/Ji-Eon/HD_Works/blob/HD_Dev_Works/git_images/page_layout.png?raw=true">
 </p>
 
 2. Search
 - 환자정보에 대한 검색은 환자이름,환자번호,생년월일로 검색이 가능합니다.
 
+<p align="center">
+  <img src="https://github.com/Ji-Eon/HD_Works/blob/HD_Dev_Works/git_images/pname_search_1.png?raw=true">
+</p>
+
+<p align="center">
+  <img src="https://github.com/Ji-Eon/HD_Works/blob/HD_Dev_Works/git_images/pname_search_2.png?raw=true">
+</p>
+
+<p align="center">
+  <img src="https://github.com/Ji-Eon/HD_Works/blob/HD_Dev_Works/git_images/p_id_search_1.png?raw=true">
+</p>
+
 3. ADD_Pateient
 - 환자정보 추가는 환자이름 , 아이디 ( 추후 자동부여로 변경 ) ,생년월일 ,전화번호 , 성별
 
+<p align="center">
+  <img src="https://github.com/Ji-Eon/HD_Works/blob/HD_Dev_Works/git_images/create_patient_modal.png?raw=true">
+</p>
+
 4. Patient Detail
 - 환자 상세 정보를 확인할 수 있습니다.
+- 버튼을 클릭하면 환자 정보에 대한 Modal을 불러 옵니다.
 
 5. Delete 
 - 환자 정보를 삭제합니다. ( 의료정보의 경우 10년 보관해야 합니다.)
 
+<p align="center">
+  <img src="https://github.com/Ji-Eon/HD_Works/blob/HD_Dev_Works/git_images/create_patient_modal.png?raw=true">
+</p>
 
 
 ## Developer
