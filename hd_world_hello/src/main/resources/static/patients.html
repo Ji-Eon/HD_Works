@@ -68,6 +68,8 @@
       <th>Birthday</th>
       <th>Phone</th>
       <th>Gender</th>
+      <th>hospitalName</th>
+
     </tr>
     </thead>
     <tbody id="patient-list">
@@ -88,13 +90,16 @@
   let currentPage = 0; // 현재 페이지
   const pageSize = 10; // 페이지 당 환자 수
 
+  // Fetch patients from the backend and update the table
   function fetchPatients(page = 0) {
     currentPage = page;
-    fetch(`http://localhost:8080/patients/list?page=${currentPage}&size=${pageSize}`)
+    fetch(`http://localhost:8080/patients/pagenation?page=${currentPage}&size=${pageSize}`)
             .then(response => response.json())
             .then(data => {
               const patientList = document.getElementById('patient-list');
               patientList.innerHTML = ''; // Clear existing patient data
+
+              // Populate the patient data into the table
               data.content.forEach(patient => {
                 patientList.innerHTML += `
             <tr>
@@ -104,27 +109,34 @@
               <td>${patient.birthday}</td>
               <td>${patient.phone}</td>
               <td>${patient.gender}</td>
+              <td>${patient.hospitalName}</td>
             </tr>
           `;
               });
 
+              // Build the pagination buttons
               buildPagination(data.totalPages);
-            });
+            }).catch(error => {
+      console.error('Error:', error);
+    });
   }
 
+  // Build pagination buttons based on total pages
   function buildPagination(totalPages) {
     const pagination = document.getElementById('pagination');
     pagination.innerHTML = ''; // Clear existing pagination buttons
     for (let i = 0; i < totalPages; i++) {
       const li = document.createElement('li');
       li.className = `page-item ${i === currentPage ? 'active' : ''}`;
-      li.innerHTML = `<a class="page-link" href="#" onclick="fetchPatients(${i})">${i + 1}</a>`;
+      li.innerHTML = `<a class="page-link" href="#" onclick="fetchPatients(${i}); return false;">${i + 1}</a>`;
       pagination.appendChild(li);
     }
   }
 
-  // Load initial patient data
-  fetchPatients();
+  // Call fetchPatients on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    fetchPatients();
+  });
 </script>
 
 <script>
@@ -136,14 +148,15 @@
       patientId: document.getElementById('patient-id').value,
       birthday: document.getElementById('patient-birthday').value,
       phone: document.getElementById('patient-phone').value,
-      gender: document.getElementById('patient-gender').value
+      gender: document.getElementById('patient-gender').value,
+
     };
 
     addPatient(patientData);
   });
 
   function addPatient(patientData) {
-    fetch('http://localhost:8080/patients', {
+    fetch('http://localhost:8080/patients/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

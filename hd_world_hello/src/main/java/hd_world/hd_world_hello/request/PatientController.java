@@ -1,5 +1,10 @@
 package hd_world.hd_world_hello.request;
 
+import hd_world.hd_world_hello.domain.Hospital;
+import hd_world.hd_world_hello.repository.HospitalRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import hd_world.hd_world_hello.domain.Patient;
 import hd_world.hd_world_hello.domain.PatientDTO;
@@ -16,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/patients") // 이 경로로 시작하는 모든 HTTP 요청을 처리합니다.
@@ -23,10 +29,14 @@ public class PatientController {
 
     @Autowired
     private PatientRepository patientRepository;
+    private HospitalRepository hospitalRepository;
 
-    public PatientController(PatientRepository patientRepository) {
+    public PatientController(PatientRepository patientRepository, HospitalRepository hospitalRepository) {
         this.patientRepository = patientRepository;
+        this.hospitalRepository = hospitalRepository;
     }
+    private static final Logger logger = LoggerFactory.getLogger(PatientController.class);
+
 
     @GetMapping("/list")
     public List<PatientDTO> findAllUserWithDTO() {
@@ -55,28 +65,56 @@ public class PatientController {
         return patientDTOs;
     }
     @GetMapping("/pagenation")
-    public Page<Patient> getPatientsPage(
+    public Page<PatientDTO> getPatientsPageWithDTO(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
     ) {
         Pageable pageable = PageRequest.of(page, size);
-        return patientRepository.findAll(pageable);
+        Page<Patient> patientPage = patientRepository.findAll(pageable);
+
+        Page<PatientDTO> dtoPage = patientPage.map(patient -> {
+            PatientDTO dto = new PatientDTO();
+            dto.setId(patient.getId());
+            dto.setPatientName(patient.getPatientName());
+            dto.setPatientId(patient.getPatientId());
+            dto.setBirthday(patient.getBirthday());
+            dto.setPhone(patient.getPhone());
+            dto.setGender(patient.getGender());
+
+            if (patient.getHospital() != null) {
+                dto.setHospitalId(patient.getHospital().getId());
+                dto.setHospitalName(patient.getHospital().getHospitalName());
+            }
+
+            return dto;
+        });
+
+        return dtoPage;
     }
 
-    @PostMapping
-    public ResponseEntity<Patient> addPatient(@RequestBody Patient patient) {
+
+    @PostMapping("/create")
+    public ResponseEntity<String> addPatient(@RequestBody Patient patient) {
+        // Log the incoming patient data
+        System.out.println("Adding new patient:");
+        System.out.println("Name: " + patient.getPatientName());
+
+        // Assuming "정션병원" is already present in the Hospital table
+        Optional<Hospital> hospital = hospitalRepository.findByHospitalName("정션병원");
+        if (hospital.isPresent()) {
+            // Set the hospital to the patient
+            patient.setHospital(hospital.get());
+        } else {
+            // Handle the case where the hospital is not found
+            System.out.println("Hospital '정션병원' not found");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Hospital not found");
+        }
+
+        // Save the patient
         Patient newPatient = patientRepository.save(patient);
-        return new ResponseEntity<>(newPatient, HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Patient created with ID: " + newPatient.getId());
     }
 
-//    @PostMapping("/user") // Patient 테이블에 데이터를 입력하는 부분 insert into user (msrl, name, uid) values (null, ?, ?) 와 같음
-//    public Patient save() {
-//        Patient user = Patient.builder()
-//                .uid("pepe@sadfrog.com") // Patient 클래스에서 만들어진 변수 uid, name
-//                .name("페페")
-//                .build();
-//
-//        return userJpaRepo.save(user);
-//    }
+
 
 }
