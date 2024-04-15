@@ -171,10 +171,9 @@ public class PatientController {
             patients.addAll(patientRepository.findByPatientIdContaining(id));
         }
         if (birthday != null) {
-            // 생일로 검색하는 부분 추가 가능
+            patients.addAll(patientRepository.findByBirthday(birthday));
+
         }
-
-
 
         // 중복 제거 로직 추가
         Set<Patient> uniquePatients = new HashSet<>(patients);
