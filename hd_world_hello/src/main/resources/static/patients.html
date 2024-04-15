@@ -68,6 +68,38 @@
     </div>
   </div>
 
+  <!-- Detail/Update Patient Modal -->
+  <div class="modal fade" id="detailPatientModal" tabindex="-1" role="dialog" aria-labelledby="detailPatientModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="detailPatientModalLabel">Patient Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="detail-patient-form">
+            <input type="hidden" id="patient-id-hidden" value=""> <!-- Hidden input to store patient ID -->
+            <div class="form-group">
+              <label for="patient-name">Patient Name</label>
+              <input type="text" class="form-control" id="patient-name" required>
+            </div>
+            <div class="form-group">
+              <label for="patient-id">Patient ID</label>
+              <input type="text" class="form-control" id="patient-id" required>
+            </div>
+            <!-- Add other fields similarly -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" form="detail-patient-form" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <table class="table">
     <thead>
     <tr>
@@ -119,6 +151,8 @@
                 <td>${patient.phone}</td>
                 <td>${patient.gender}</td>
                 <td>${patient.hospitalName}</td>
+                <td><button class="btn btn-primary" onclick="detailPatient(${patient.id})">Detail</button></td>
+
                 <td><button class="btn btn-danger" onclick="confirmDelete(${patient.id})">Delete</button></td>
               </tr>
           `;
@@ -203,6 +237,48 @@
             })
             .catch(error => console.error('Error:', error));
   }
+</script>
+
+<script>
+  function detailPatient(patientId) {
+    fetch(`http://localhost:8080/patients/${patientId}`)
+            .then(response => response.json())
+            .then(patient => {
+              document.getElementById('patient-id-hidden').value = patient.id; // Set patient ID to hidden input
+              document.getElementById('patient-name').value = patient.patientName;
+              document.getElementById('patient-id').value = patient.patientId;
+              // Populate other fields
+              $('#detailPatientModal').modal('show');
+            });
+  }
+
+  document.getElementById('detail-patient-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const patientId = document.getElementById('patient-id-hidden').value; // Get patient ID from hidden input
+
+    const updatedPatientData = {
+      patientName: document.getElementById('patient-name').value,
+      patientId: document.getElementById('patient-id').value,
+      // Extract other fields similarly
+    };
+
+    fetch(`http://localhost:8080/patients/${patientId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedPatientData)
+    })
+            .then(response => {
+              if (response.ok) {
+                $('#detailPatientModal').modal('hide');
+                fetchPatients(currentPage); // Optionally refresh the patients list or handle the updated data
+              } else {
+                console.error('Error updating patient');
+              }
+            });
+  });
+
 </script>
 </body>
 </html>
