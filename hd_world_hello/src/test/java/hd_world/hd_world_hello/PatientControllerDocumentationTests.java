@@ -30,7 +30,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 @ExtendWith(RestDocumentationExtension.class)
 @WebMvcTest(PatientController.class)
-@AutoConfigureRestDocs(outputDir = "target/snippets")
+@AutoConfigureRestDocs
+
 public class PatientControllerDocumentationTests {
 
     @Autowired

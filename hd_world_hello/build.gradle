@@ -42,33 +42,36 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 ext {
-	snippetsDir = file('build/generated-snippets')
+	snippetsDir = file('build/generated-snippets') // 스니펫이 생성되는 디렉터리 경로를 설정
 }
 
 test {
-	useJUnitPlatform()
-	outputs.dir snippetsDir
+	outputs.dir snippetsDir // 스니펫이 생성되는 디렉터리를 설정
+}
+
+asciidoctor { // Gradle이 asciidoctor Task를 수행하는 설정 (함수 선언)
+	configurations 'asciidoctorExt' // asciidoctor 확장 설정
+	baseDirFollowsSourceFile() // .adoc 파일을 include 하면서 사용하기 위한 설정
+	inputs.dir snippetsDir // 스니펫을 불러올 위치 설정
+	dependsOn test // Gradle의 test Task 이후 asciidoctor를 수행
 }
 
 asciidoctor {
+	configurations 'asciidoctorExtensions'
 	inputs.dir snippetsDir
-	configurations 'asciidoctorExt'
-	dependsOn test
-
-	outputOptions {
-		backends 'html5'  // 올바른 메소드 호출 방식으로 수정
-		outputDir file('build/docs/html5')
+	sources {
+		include("**/index.adoc")
 	}
+	baseDirFollowsSourceFile()
+	dependsOn test
 }
 
-asciidoctor.doFirst {
-	delete file("src/main/resources/static/docs")
+task copyDocument(type: Copy) {
+	dependsOn asciidoctor
+	from file("${asciidoctor.outputDir}")
+	into file("src/main/resources/static")
 }
 
 bootJar {
-	dependsOn asciidoctor
-	from("${asciidoctor.outputDir}/html5") {
-		into 'static/docs'
-	}
+	dependsOn copyDocument
 }
-
