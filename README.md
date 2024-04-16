@@ -119,7 +119,7 @@ H2 Console을 이용하여 Query를 통해 데이터를 입력 후  [localhost:8
 </p>
 
 
-### Test Code & Spring-restDOc
+### Test Code & Spring-restDoc
 1. Test코드 작성 및 실행 : PatientControllerDocumentationTest.java파일을 실행하면 아래와 같이 테스트를 수행하였습니다.
 <p align="center">
   <img src="https://github.com/Ji-Eon/HD_Works/blob/en_dev/git_images/controller_test_result.png?raw=true">
@@ -131,7 +131,6 @@ H2 Console을 이용하여 Query를 통해 데이터를 입력 후  [localhost:8
 - PatientID의 경우 규칙성을 만드는것 -> ext ) 정션병원 -> js12...js13.. 각 병원마다 PatientID를 부여하는 법이 달라 규칙성이 없이 저장되게 한부분이 아쉽습니다.
 - HospitalName으로 Object값을 기준으로 정보를 입력하고 있어 하나의 병원 또는 EMR자체를 같이 공유하는 병원에 경우에 대한 고민이 부족한 점이 아쉽습니다.
 - EMR의 경우 현재 대학병원에서 데이터가 부족한경우 로컬병원에도 요청하는 사례가 빈번하게 이루어져 있어 PatientInformation에 대한 규칙정이 부족한 부분이 아쉽습니다.
-- 현재, 맥북이 고장나서... 오랜만에 윈도우환경에서 과제를 하고있어 윈도우에 대한 개발환경 이해도가 낮아 아쉽습니다...ㅜㅜ
 - rest-doc대신 테스트코드와 HTML UI를 대신해서 작성해서 업로드했습니다.
 - 갑자기 코로나에 걸렸습니다..
 
