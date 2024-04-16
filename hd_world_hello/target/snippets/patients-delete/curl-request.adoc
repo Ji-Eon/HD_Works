@@ -1,0 +1,4 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/patients/delete/1' -i -X DELETE
+----

@@ -1,0 +1,6 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/patients/create' -i -X POST \
+    -H 'Content-Type: application/json;charset=UTF-8' \
+    -d '{ "patientName": "홍길동", "hospitalName": "정션병원" }'
+----

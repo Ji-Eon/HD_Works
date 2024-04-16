@@ -1,0 +1,9 @@
+[source,http,options="nowrap"]
+----
+POST /patients/create HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 62
+Host: localhost:8080
+
+{ "patientName": "홍길동", "hospitalName": "정션병원" }
+----

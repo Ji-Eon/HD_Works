@@ -5,15 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0dd5f0-5f9a-4be4-a603-18ec4a793a6b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/repository/PatientController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hd_world_hello/src/test/java/hd_world/hd_world_hello/PatientControllerDocumentationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e07b26e2-6eaa-4a4c-887a-3c162ac75748.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e07b26e2-6eaa-4a4c-887a-3c162ac75748.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/hd_world_hello.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/hd_world_hello.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/request/PatientController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-delete/curl-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-delete/http-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-delete/http-response.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-delete/httpie-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-delete/request-body.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-delete/response-body.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-detail/curl-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-detail/http-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-detail/http-response.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-detail/httpie-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-detail/request-body.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-detail/response-body.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-modify/curl-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-modify/http-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-modify/http-response.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-modify/httpie-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-modify/request-body.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-modify/response-body.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-pagenation/curl-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-pagenation/http-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-pagenation/http-response.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-pagenation/httpie-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-pagenation/request-body.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-pagenation/response-body.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-search/curl-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-search/http-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-search/http-response.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-search/httpie-request.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-search/request-body.adoc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-search/response-body.adoc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hd_world_hello/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/hd_world_hello/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/domain/PatientDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/domain/PatientDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/request/PatientController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hd_world_hello/src/test/java/hd_world/hd_world_hello/PatientControllerDocumentationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/hd_world_hello/src/test/java/hd_world/hd_world_hello/PatientControllerDocumentationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +111,12 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "Gradle.Build hd_world_hello.executor": "Run",
     "Gradle.HdWorldHelloApplicationTests.executor": "Run",
+    "Gradle.PatientControllerDocumentationTests.addPatientExample.executor": "Run",
+    "Gradle.PatientControllerDocumentationTests.deletePatientExample.executor": "Run",
+    "Gradle.PatientControllerDocumentationTests.executor": "Run",
+    "Gradle.PatientControllerDocumentationTests.getPatientByIdExample.executor": "Run",
     "Gradle.PatientControllerDocumentationTests.listPatientsExample.executor": "Run",
+    "Gradle.PatientControllerDocumentationTests.searchPatientsExample.executor": "Run",
     "Gradle.PatientRepositoryTest.executor": "Run",
     "Gradle.PatientRepositoryTest.whenSaved_thenFindsByName.executor": "Run",
     "Gradle.PatientRepositoryTests.executor": "Run",
@@ -125,8 +155,8 @@
       <recent name="E:\Git-Hub\HD_Works\hd_world_hello\src\main\resources\static" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.HdWorldHelloApplication">
-    <configuration name="HdWorldHelloApplicationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.PatientControllerDocumentationTests">
+    <configuration name="PatientControllerDocumentationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/hd_world_hello" />
@@ -139,7 +169,79 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;hd_world.hd_world_hello.HdWorldHelloApplicationTests&quot;" />
+            <option value="&quot;hd_world.hd_world_hello.PatientControllerDocumentationTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PatientControllerDocumentationTests.addPatientExample" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/hd_world_hello" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;hd_world.hd_world_hello.PatientControllerDocumentationTests.addPatientExample&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PatientControllerDocumentationTests.deletePatientExample" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/hd_world_hello" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;hd_world.hd_world_hello.PatientControllerDocumentationTests.deletePatientExample&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PatientControllerDocumentationTests.getPatientByIdExample" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/hd_world_hello" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;hd_world.hd_world_hello.PatientControllerDocumentationTests.getPatientByIdExample&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -174,75 +276,21 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="PatientRepositoryTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/hd_world_hello" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;hd_world.hd_world_hello.PatientRepositoryTests&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="PatientRepositoryTests.whenSavePatient_thenRetrievePatient" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/hd_world_hello" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;hd_world.hd_world_hello.PatientRepositoryTests.whenSavePatient_thenRetrievePatient&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="HdWorldHelloApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="HdWorldHelloApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="hd_world_hello.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="hd_world.hd_world_hello.HdWorldHelloApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hd_world.hd_world_hello.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.HdWorldHelloApplication" />
+        <item itemvalue="Gradle.PatientControllerDocumentationTests" />
+        <item itemvalue="Gradle.PatientControllerDocumentationTests.addPatientExample" />
+        <item itemvalue="Gradle.PatientControllerDocumentationTests.getPatientByIdExample" />
         <item itemvalue="Gradle.PatientControllerDocumentationTests.listPatientsExample" />
-        <item itemvalue="Gradle.HdWorldHelloApplicationTests" />
-        <item itemvalue="Gradle.PatientRepositoryTests" />
-        <item itemvalue="Gradle.PatientRepositoryTests.whenSavePatient_thenRetrievePatient" />
+        <item itemvalue="Gradle.PatientControllerDocumentationTests.deletePatientExample" />
       </list>
     </recent_temporary>
   </component>
@@ -264,7 +312,7 @@
       <workItem from="1712814105621" duration="18590000" />
       <workItem from="1712882765524" duration="4960000" />
       <workItem from="1712911288697" duration="4712000" />
-      <workItem from="1713260996809" duration="4390000" />
+      <workItem from="1713260996809" duration="6805000" />
     </task>
     <servers />
   </component>

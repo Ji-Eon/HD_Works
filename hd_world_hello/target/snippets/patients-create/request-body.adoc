@@ -1,0 +1,4 @@
+[source,json,options="nowrap"]
+----
+{ "patientName": "홍길동", "hospitalName": "정션병원" }
+----

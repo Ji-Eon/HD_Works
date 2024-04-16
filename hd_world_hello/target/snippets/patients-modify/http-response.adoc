@@ -1,0 +1,8 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 97
+
+{"id":1,"patientName":"John Updated","patientId":null,"birthday":null,"phone":null,"gender":null}
+----

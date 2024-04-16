@@ -1,0 +1,5 @@
+[source,bash]
+----
+$ echo '{"patientName": "John Updated"}' | http PUT 'http://localhost:8080/patients/modify/1' \
+    'Content-Type:application/json;charset=UTF-8'
+----
