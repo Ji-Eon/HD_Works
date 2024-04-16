@@ -1,16 +1,14 @@
-package hd_world.hd_world_hello.request;
+package hd_world.hd_world_hello.repository;
 
 
 
 import hd_world.hd_world_hello.domain.Hospital;
-import hd_world.hd_world_hello.repository.HospitalRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
 import hd_world.hd_world_hello.domain.Patient;
 import hd_world.hd_world_hello.domain.PatientDTO;
-import hd_world.hd_world_hello.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,13 +17,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 

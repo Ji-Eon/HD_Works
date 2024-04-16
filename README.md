@@ -118,6 +118,14 @@ H2 Console을 이용하여 Query를 통해 데이터를 입력 후  [localhost:8
   <img src="https://github.com/Ji-Eon/HD_Works/blob/HD_Dev_Works/git_images/delete_modal.png?raw=true">
 </p>
 
+
+### Test Code & Spring-restDOc
+1. Test코드 작성 및 실행 : PatientControllerDocumentationTest.java파일을 실행하면 아래와 같이 테스트를 수행하였습니다.
+
+
+2. adoc파일을 생성하고 아래와 같이 접속하시면 TestCode에 대한 rest-docs를 확인할 수 있습니다.
+
+
 ### 회고 및 향후 Sprint
 - PatientID의 경우 규칙성을 만드는것 -> ext ) 정션병원 -> js12...js13.. 각 병원마다 PatientID를 부여하는 법이 달라 규칙성이 없이 저장되게 한부분이 아쉽습니다.
 - HospitalName으로 Object값을 기준으로 정보를 입력하고 있어 하나의 병원 또는 EMR자체를 같이 공유하는 병원에 경우에 대한 고민이 부족한 점이 아쉽습니다.
