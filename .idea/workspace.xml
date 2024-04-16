@@ -5,55 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a0dd5f0-5f9a-4be4-a603-18ec4a793a6b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/hd_world_hello.main.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/hd_world_hello/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/src/main/java/hd_world/hd_world_hello/repository/testClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/src/main/resources/static/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/src/test/java/hd_world/hd_world_hello/PatientControllerDocumentationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/hd_world_hello/src/test/java/hd_world/hd_world_hello/PatientControllerDocumentationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-create/curl-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-create/http-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-create/http-response.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-create/httpie-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-create/request-body.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-create/response-body.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-delete/curl-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-delete/http-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-delete/http-response.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-delete/httpie-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-delete/request-body.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-delete/response-body.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-detail/curl-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-detail/http-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-detail/http-response.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-detail/httpie-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-detail/request-body.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-detail/response-body.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-list/curl-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-list/http-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-list/http-response.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-list/httpie-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-list/request-body.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-list/response-body.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-modify/curl-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-modify/http-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-modify/http-response.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-modify/httpie-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-modify/request-body.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-modify/response-body.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-pagenation/curl-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-pagenation/http-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-pagenation/http-response.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-pagenation/httpie-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-pagenation/request-body.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-pagenation/response-body.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-search/curl-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-search/http-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-search/http-response.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-search/httpie-request.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-search/request-body.adoc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hd_world_hello/target/snippets/patients-search/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,9 +120,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Git-Hub\HD_Works\git_images" />
       <recent name="E:\Git-Hub\HD_Works\hd_world_hello\src" />
       <recent name="E:\Git-Hub\HD_Works\hd_world_hello\build\generated-snippets" />
-      <recent name="E:\Git-Hub\HD_Works\git_images" />
       <recent name="E:\Git-Hub\HD_Works\hd_world_hello\src\main\resources\static" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -334,7 +287,7 @@
       <workItem from="1712882765524" duration="4960000" />
       <workItem from="1712911288697" duration="4712000" />
       <workItem from="1713260996809" duration="7300000" />
-      <workItem from="1713268315536" duration="2697000" />
+      <workItem from="1713268315536" duration="2959000" />
     </task>
     <servers />
   </component>
