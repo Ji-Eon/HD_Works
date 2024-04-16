@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patients List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+  <div class="container mt-5">
+    <h2 class="mb-4">Patients List</h2>
+    <div class="d-flex justify-content-between mb-3">
+      <!-- Add Patient Button -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPatientModal">
+        Add Patient
+      </button>
+
+      <!-- Search Form -->
+      <form class="form-inline my-2 my-lg-0" onsubmit="searchPatients(); return false;">
+        <select class="custom-select mr-sm-2" id="search-category">
+          <option value="name">Patient Name</option>
+          <option value="id">Patient ID</option>
+          <option value="birthday">Birthday</option>
+        </select>
+        <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="Search patients" aria-label="Search">
+        <button class="btn btn-outline-secondary" type="button" onclick="searchPatients()">Search</button>
+      </form>
+    </div>
+    <!-- Table and the rest of your page content goes here -->
+  </div>
+
+  <!-- Add Patient Modal -->
+  <div class="modal fade" id="addPatientModal" tabindex="-1" role="dialog" aria-labelledby="addPatientModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addPatientModalLabel">Add New Patient</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="add-patient-form">
+            <div class="form-group">
+              <label for="patient-name">Patient Name</label>
+              <input type="text" class="form-control" id="patient-name" required>
+            </div>
+            <div class="form-group">
+              <label for="patient-id">Patient ID</label>
+              <input type="text" class="form-control" id="patient-id" required>
+            </div>
+            <div class="form-group">
+              <label for="patient-birthday">Birthday</label>
+              <input type="date" class="form-control" id="patient-birthday" required>
+            </div>
+            <div class="form-group">
+              <label for="patient-phone">Phone</label>
+              <input type="tel" class="form-control" id="patient-phone" required>
+            </div>
+            <div class="form-group">
+              <label for="patient-gender">Gender</label>
+              <select class="form-control" id="patient-gender" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Other</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail/Update Patient Modal -->
+  <div class="modal fade" id="detailPatientModal" tabindex="-1" role="dialog" aria-labelledby="detailPatientModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="detailPatientModalLabel">Patient Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="detail-patient-form">
+            <input type="hidden" id="patient-id-hidden" value=""> <!-- Hidden input to store patient ID -->
+            <div class="form-group">
+              <label for="detail-patient-name">Patient Name</label>
+              <input type="text" class="form-control" id="detail-patient-name" required>
+            </div>
+            <div class="form-group">
+              <label for="detail-patient-id">Patient ID</label>
+              <input type="text" class="form-control" id="detail-patient-id" required>
+            </div>
+            <div class="form-group">
+              <label for="detail-patient-birthday">Birthday</label>
+              <input type="date" class="form-control" id="detail-patient-birthday" required>
+            </div>
+            <div class="form-group">
+              <label for="detail-patient-phone">Phone</label>
+              <input type="tel" class="form-control" id="detail-patient-phone" required>
+            </div>
+            <div class="form-group">
+              <label for="detail-patient-gender">Gender</label>
+              <select class="form-control" id="detail-patient-gender" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Other</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" form="detail-patient-form" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Patient Name</th>
+      <th>Patient ID</th>
+      <th>Birthday</th>
+      <th>Phone</th>
+      <th>Gender</th>
+      <th>hospitalName</th>
+
+    </tr>
+    </thead>
+    <tbody id="patient-list">
+    <!-- Patient data will go here -->
+    </tbody>
+  </table>
+  <nav>
+    <ul id="pagination" class="pagination">
+      <!-- Pagination buttons will go here -->
+    </ul>
+  </nav>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+  let currentPage = 0; // 현재 페이지
+  const pageSize = 10; // 페이지 당 환자 수
+
+  // Fetch patients from the backend and update the table
+  function fetchPatients(page = 0) {
+    currentPage = page;
+    fetch(`http://localhost:8080/patients/pagenation?page=${currentPage}&size=${pageSize}`)
+            .then(response => response.json())
+            .then(data => {
+              const patientList = document.getElementById('patient-list');
+              patientList.innerHTML = ''; // Clear existing patient data
+
+              // Populate the patient data into the table
+              data.content.forEach(patient => {
+                console.log('patient ssssss: ',patient)
+                patientList.innerHTML += `
+              <tr>
+                <td>${patient.id}</td>
+                <td>${patient.patientName}</td>
+                <td>${patient.patientId}</td>
+                <td>${patient.birthday}</td>
+                <td>${patient.phone}</td>
+                <td>${patient.gender}</td>
+                <td>${patient.hospitalName}</td>
+                <td><button class="btn btn-primary" onclick="detailPatient(${patient.id})">Detail</button></td>
+
+                <td><button class="btn btn-danger" onclick="confirmDelete(${patient.id})">Delete</button></td>
+              </tr>
+          `;
+              });
+
+              // Build the pagination buttons
+              buildPagination(data.totalPages);
+            }).catch(error => {
+      console.error('Error:', error);
+    });
+  }
+
+  // Build pagination buttons based on total pages
+  function buildPagination(totalPages) {
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = ''; // Clear existing pagination buttons
+    for (let i = 0; i < totalPages; i++) {
+      const li = document.createElement('li');
+      li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+      li.innerHTML = `<a class="page-link" href="#" onclick="fetchPatients(${i}); return false;">${i + 1}</a>`;
+      pagination.appendChild(li);
+    }
+  }
+
+  // Call fetchPatients on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    fetchPatients();
+  });
+</script>
+
+<script>
+  document.getElementById('add-patient-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const patientData = {
+      patientName: document.getElementById('patient-name').value,
+      patientId: document.getElementById('patient-id').value,
+      birthday: document.getElementById('patient-birthday').value,
+      phone: document.getElementById('patient-phone').value,
+      gender: document.getElementById('patient-gender').value,
+
+    };
+
+    addPatient(patientData);
+  });
+
+  function addPatient(patientData) {
+    fetch('http://localhost:8080/patients/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(patientData)
+    })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+              $('#addPatientModal').modal('hide');
+              fetchPatients(); // 데이터를 다시 불러와 테이블을 갱신합니다.
+            })
+            .catch(error => console.error('Error:', error));
+  }
+</script>
+<script>
+  function confirmDelete(patientId) {
+    if (confirm('정말로 삭제하시겠습니까?')) {
+      deletePatient(patientId);
+    }
+  }
+
+  function deletePatient(patientId) {
+    fetch(`http://localhost:8080/patients/delete/${patientId}`, {
+      method: 'DELETE'
+    })
+            .then(response => {
+              if(response.ok) {
+                alert('환자가 삭제되었습니다.');
+                fetchPatients(currentPage); // 페이지를 다시 로드하여 변경사항을 반영합니다.
+              } else {
+                alert('환자를 삭제하는데 실패했습니다.');
+              }
+            })
+            .catch(error => console.error('Error:', error));
+  }
+</script>
+
+<script>
+  function detailPatient(patientId) {
+    // Fetch the patient data using the patientId
+    fetch(`http://localhost:8080/patients/detail/${patientId}`)
+            .then(response => response.json())
+            .then(patient => {
+              // Fill in the form fields with the fetched patient data
+              document.getElementById('patient-id-hidden').value = patient.id;
+              document.getElementById('detail-patient-name').value = patient.patientName;
+              document.getElementById('detail-patient-id').value = patient.patientId;
+              document.getElementById('detail-patient-birthday').value = patient.birthday;
+              document.getElementById('detail-patient-phone').value = patient.phone;
+              document.getElementById('detail-patient-gender').value = patient.gender;
+
+              // Show the modal with the form filled
+              $('#detailPatientModal').modal('show');
+            })
+            .catch(error => {
+              console.error('Error fetching patient details:', error);
+            });
+  }
+
+  // Update patient details
+  document.getElementById('detail-patient-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const patientId = document.getElementById('patient-id-hidden').value;
+
+    const updatedPatientData = {
+      patientName: document.getElementById('detail-patient-name').value,
+      patientId: document.getElementById('detail-patient-id').value,
+      birthday: document.getElementById('detail-patient-birthday').value,
+      phone: document.getElementById('detail-patient-phone').value,
+      gender: document.getElementById('detail-patient-gender').value
+    };
+
+    fetch(`http://localhost:8080/patients/modify/${patientId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedPatientData)
+    })
+            .then(response => {
+              if (response.ok) {
+                $('#detailPatientModal').modal('hide');
+                fetchPatients(currentPage);
+              } else {
+                console.error('Error updating patient');
+              }
+            });
+  });
+
+</script>
+
+<script>
+  function searchPatients() {
+    const searchCategory = document.getElementById('search-category').value;
+    const searchInput = document.getElementById('search-input').value; // 'search-input'이라는 ID를 가진 입력 필드가 존재하는지 확인하세요.
+
+    let searchUrl = `http://localhost:8080/patients/search?`;
+
+    if (searchCategory === "name") {
+      searchUrl += `name=${encodeURIComponent(searchInput)}`;
+    } else if (searchCategory === "id") {
+      searchUrl += `id=${encodeURIComponent(searchInput)}`;
+    } else if (searchCategory === "birthday") {
+      searchUrl += `birthday=${encodeURIComponent(searchInput)}`;
+    }
+
+    // Clear the existing table
+    const patientList = document.getElementById('patient-list');
+    patientList.innerHTML = '';
+
+    fetch(searchUrl)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.statusText);
+              }
+              return response.json();
+            })
+            .then(patients => {
+              // Clear the current contents of the table
+              const patientList = document.getElementById('patient-list');
+              patientList.innerHTML = '';
+
+              // Check if patients array is not empty
+              if (patients.length > 0) {
+                // Iterate over each patient and append a row to the table for each one
+                patients.forEach(patient => {
+                  patientList.innerHTML += `
+                  <tr>
+                    <td>${patient.id}</td>
+                    <td>${patient.patientName}</td>
+                    <td>${patient.patientId}</td>
+                    <td>${patient.birthday}</td>
+                    <td>${patient.phone}</td>
+                    <td>${patient.gender}</td>
+                    <td>${patient.hospitalName}</td>
+                    <td><button class="btn btn-primary" onclick="detailPatient(${patient.id})">Detail</button></td>
+                    <td><button class="btn btn-danger" onclick="confirmDelete(${patient.id})">Delete</button></td>
+                  </tr>`;
+                });
+              } else {
+                // If the patients array is empty, display a 'No records found' message
+                patientList.innerHTML = `<tr><td colspan="9" class="text-center">No records found</td></tr>`;
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+  }
+</script>
+</body>
+</html>
